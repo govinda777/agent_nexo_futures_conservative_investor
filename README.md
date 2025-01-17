@@ -127,7 +127,7 @@ graph LR;
 graph TD;
     A[Entrada: Dados do Mercado] -->|Preços, Volume, Volatilidade| B[Pré-processamento]
     B -->|Normalização de Dados| C[Transformers para Séries Temporais]
-    C -->|Padrões Identificados| D[Camadas Neurais Densas (DNN)]
+    C -->|Padrões Identificados| D[Camadas Neurais Densas DNN]
     D -->|Decisão Inicial| E[Política de Ação PPO]
     E -->|Compra/Venda/Manutenção| F[Execução de Ordem]
     E -->|Ajuste Automático de Stop Loss| G[Ajuste de Risco]
