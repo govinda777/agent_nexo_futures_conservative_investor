@@ -139,3 +139,57 @@ graph TD;
 
 🚀 **Com essa arquitetura, o agente pode aprender com o mercado, detectar padrões mais rapidamente e melhorar suas decisões ao longo do tempo!**
 
+---
+
+Aqui está a estrutura do projeto e a explicação de cada arquivo:
+
+## 1. Estrutura do Projeto
+```
+nexo_futures_ai/
+│-- data/                # Armazena dados brutos e processados
+│-- models/              # Modelos treinados e checkpoints
+│-- scripts/             # Scripts de execução rápida
+│-- notebooks/           # Notebooks para exploração de dados e testes
+│-- configs/             # Configurações do projeto
+│-- logs/                # Logs de execução e treinamento
+│-- src/                 # Código-fonte principal
+│   │-- __init__.py      # Torna 'src' um pacote Python
+│   │-- data_loader.py   # Carrega e processa os dados
+│   │-- model.py         # Define a rede neural
+│   │-- train.py         # Script de treinamento do modelo
+│   │-- evaluate.py      # Avalia o modelo treinado
+│   │-- utils.py         # Funções auxiliares
+│-- README.md            # Documentação do projeto
+│-- .gitignore           # Arquivos a serem ignorados pelo Git
+│-- requirements.txt     # Lista de dependências do projeto
+│-- configs/config.yaml  # Arquivo de configuração
+```
+
+## 2. Explicação de Cada Arquivo
+
+### Diretórios:
+- **data/**: Armazena os dados brutos (ex: histórico de preços) e os dados processados.
+- **models/**: Guarda os modelos treinados e checkpoints para futuras execuções.
+- **scripts/**: Scripts utilitários que podem ser rodados separadamente.
+- **notebooks/**: Contém Jupyter Notebooks para análise e testes interativos.
+- **configs/**: Armazena arquivos de configuração para parametrização do projeto.
+- **logs/**: Contém arquivos de log gerados durante execuções do treinamento e testes.
+- **src/**: Contém o código-fonte principal do projeto.
+
+### Arquivos:
+- **README.md**: Explica o objetivo do projeto, como rodá-lo e suas dependências.
+- **.gitignore**: Arquivo que informa ao Git quais arquivos e pastas devem ser ignorados no versionamento.
+- **requirements.txt**: Lista todas as dependências (bibliotecas) que o projeto precisa para rodar corretamente.
+- **configs/config.yaml**: Define configurações do projeto, como hiperparâmetros e caminhos dos dados.
+
+### Arquivos em `src/`:
+- **__init__.py**: Torna a pasta um pacote Python, permitindo importação de módulos.
+- **data_loader.py**: Contém funções para carregar, limpar e processar os dados de entrada.
+- **model.py**: Define a arquitetura da rede neural (ex: LSTM, CNN, MLP).
+- **train.py**: Responsável por treinar o modelo usando os dados de entrada.
+- **evaluate.py**: Mede o desempenho do modelo treinado usando métricas de avaliação.
+- **utils.py**: Contém funções auxiliares como normalização de dados e visualização.
+
+Essa estrutura ajuda a manter o projeto organizado e modular, facilitando o desenvolvimento e a manutenção.
+
+
