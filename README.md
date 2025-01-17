@@ -388,28 +388,22 @@ Aqui está um roteiro detalhado para a criação do projeto **Agente Nexo - Inve
 
 ---
 
-## 📔 Notebooks e Análises
-
-### 📊 Explorando Dados do Mercado
+📓 Notebooks e Análises
 
 Os notebooks do projeto ajudam a analisar e visualizar os dados históricos, permitindo entender tendências e padrões antes do treinamento do modelo.
 
-- `notebooks/data_exploration.ipynb`: Visualiza séries temporais de preços, volume e indicadores técnicos.
-- `notebooks/market_analysis.ipynb`: Gera gráficos comparativos entre diferentes períodos de tempo.
+notebooks/data_exploration.ipynb: Visualiza séries temporais de preços, volume e indicadores técnicos.
 
-### 🏋️‍♂️ Treinamento e Avaliação do Modelo
+notebooks/market_analysis.ipynb: Gera gráficos comparativos entre diferentes períodos de tempo.
 
-- `notebooks/training_model.ipynb`: Treina a rede neural, ajusta hiperparâmetros e visualiza métricas de aprendizado.
-- `notebooks/model_performance.ipynb`: Mede o desempenho do modelo usando métricas como **Sharpe Ratio** e **Max Drawdown**.
+notebooks/training_model.ipynb: Treina a rede neural, ajusta hiperparâmetros e visualiza métricas de aprendizado.
 
-### 🎯 Backtesting e Simulações
+notebooks/model_performance.ipynb: Mede o desempenho do modelo usando métricas como Sharpe Ratio e Max Drawdown.
 
-- `notebooks/backtesting.ipynb`: Simula o desempenho do modelo em dados históricos e avalia seu potencial de lucro.
-- `notebooks/scenario_simulation.ipynb`: Testa o modelo em diferentes condições de mercado, como tendências de alta, baixa e lateralidade.
+notebooks/backtesting.ipynb: Simula o desempenho do modelo em dados históricos e avalia seu potencial de lucro.
 
-Esses notebooks garantem que todas as decisões do agente sejam **testadas e validadas antes de entrar em operação real**
+notebooks/scenario_simulation.ipynb: Testa o modelo em diferentes condições de mercado, como tendências de alta, baixa e lateralidade.
 
-
-
+Esses notebooks garantem que todas as decisões do agente sejam testadas e validadas antes de entrar em operação real.
 
 
