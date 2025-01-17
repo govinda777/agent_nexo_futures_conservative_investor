@@ -141,7 +141,88 @@ graph TD;
 
 ---
 
-Aqui está a estrutura do projeto e a explicação de cada arquivo:
+# 📈 Training Scenarios for Agente Nexo
+
+## 🏆 Objetivo
+Este documento define diferentes **cenários de treinamento** para o agente Nexo, permitindo que ele aprenda a tomar **decisões de investimento** da melhor forma possível em **diferentes condições de mercado**.
+
+O treinamento será dividido em **jogos/simulações**, onde o agente enfrentará desafios e aprenderá **estratégias vencedoras**.
+
+---
+
+## 🎮 Jogos e Cenários de Treinamento
+
+### **1️⃣ Jogo: Mercado de Baixa Extrema (Bear Market)**
+🔹 **Objetivo:** Ensinar o agente a **evitar perdas** e identificar pontos de entrada seguros.
+🔹 **Cenário:**
+   - O mercado cai 10% em um curto período.
+   - O agente precisa decidir se **mantém a posição, vende ou espera**.
+   - Se ele vender muito cedo, pode perder um possível repique.
+   - Se ele segurar muito tempo, pode sofrer grandes perdas.
+🔹 **Recompensa:**
+   - Se evitar perdas acima de 5% e encontrar um **ponto de entrada lucrativo**, recebe uma **recompensa alta**.
+   - Se segurar demais e não conseguir recuperar, recebe **penalização**.
+
+### **2️⃣ Jogo: Mercado Lateral (Consolidação)**
+🔹 **Objetivo:** Ensinar o agente a operar em **mercados sem tendência**.
+🔹 **Cenário:**
+   - O preço oscila entre 40.000 e 42.000 USDT.
+   - O agente deve aprender a **comprar na parte inferior e vender na parte superior**.
+   - Se ele operar fora dessas faixas, pode sofrer **prejuízos desnecessários**.
+🔹 **Recompensa:**
+   - Se fizer **entradas e saídas precisas dentro da faixa**, recebe **recompensa alta**.
+   - Se comprar ou vender nos momentos errados, recebe **penalização**.
+
+### **3️⃣ Jogo: Pump & Dump (Volatilidade Extrema)**
+🔹 **Objetivo:** Ensinar o agente a **evitar armadilhas e capturar movimentos rápidos**.
+🔹 **Cenário:**
+   - O mercado sobe rapidamente 15% e depois cai 20%.
+   - O agente precisa decidir **se entra na alta ou espera uma correção**.
+🔹 **Recompensa:**
+   - Se identificar corretamente um **ponto de entrada seguro**, recebe **recompensa**.
+   - Se entrar muito tarde e sofrer perdas com a correção, recebe **penalização**.
+
+### **4️⃣ Jogo: Notícias Impactantes**
+🔹 **Objetivo:** Ensinar o agente a **adaptar-se a eventos inesperados**.
+🔹 **Cenário:**
+   - Uma **notícia impactante** surge, alterando o sentimento do mercado.
+   - O agente deve identificar se a notícia **gera uma nova tendência ou apenas ruído**.
+🔹 **Recompensa:**
+   - Se ajustar sua estratégia corretamente de acordo com a **notícia**, recebe **recompensa alta**.
+   - Se entrar cedo demais ou ignorar o impacto real, recebe **penalização**.
+
+### **5️⃣ Jogo: Flash Crash (Queda Rápida e Recuperação)**
+🔹 **Objetivo:** Ensinar o agente a **reagir rapidamente e identificar oportunidades**.
+🔹 **Cenário:**
+   - O BTC despenca 10% em minutos, mas recupera 8% logo depois.
+   - O agente precisa aprender a **não vender no pânico** e procurar oportunidades de compra.
+🔹 **Recompensa:**
+   - Se conseguir **comprar no momento certo**, recebe **recompensa alta**.
+   - Se vender no fundo por medo, recebe **penalização**.
+
+---
+
+## 🧠 Como o Agente Aprende a Melhor Estratégia?
+
+1. **Simulações Massivas**
+   - O agente é testado **milhares de vezes** em cada cenário.
+   - Cada simulação ajusta os pesos da rede neural para **evitar erros futuros**.
+
+2. **Recompensa por Decisões Certas**
+   - O modelo de aprendizado por reforço **recompensa boas decisões** e **penaliza erros**.
+   - Cada jogo reforça **padrões de comportamento eficiente**.
+
+3. **Ajustes Contínuos**
+   - Após o treinamento inicial, o agente continua aprendendo **com o mercado ao vivo**.
+   - Se um novo padrão de mercado surgir, o agente pode **se adaptar automaticamente**.
+
+---
+
+🚀 **Com esses jogos de treinamento, o agente poderá operar de forma mais inteligente e segura no mercado de futuros BTC/USDT!**
+
+
+
+---
 
 ## 1. Estrutura do Projeto
 ```
