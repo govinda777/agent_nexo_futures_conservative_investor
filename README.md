@@ -388,22 +388,42 @@ Aqui está um roteiro detalhado para a criação do projeto **Agente Nexo - Inve
 
 ---
 
-📓 Notebooks e Análises
+## 📓 Notebooks e Análises
 
 Os notebooks do projeto ajudam a analisar e visualizar os dados históricos, permitindo entender tendências e padrões antes do treinamento do modelo.
 
-notebooks/data_exploration.ipynb: Visualiza séries temporais de preços, volume e indicadores técnicos.
+### 📊 Exemplos de Uso dos Notebooks
 
-notebooks/market_analysis.ipynb: Gera gráficos comparativos entre diferentes períodos de tempo.
+- `notebooks/data_exploration.ipynb`:
 
-notebooks/training_model.ipynb: Treina a rede neural, ajusta hiperparâmetros e visualiza métricas de aprendizado.
+  - Carrega e visualiza séries temporais de preços, volume e indicadores técnicos.
+  - Exemplo: Geração de gráficos de candlestick para identificar padrões de movimentação do mercado.
 
-notebooks/model_performance.ipynb: Mede o desempenho do modelo usando métricas como Sharpe Ratio e Max Drawdown.
+- `notebooks/market_analysis.ipynb`:
 
-notebooks/backtesting.ipynb: Simula o desempenho do modelo em dados históricos e avalia seu potencial de lucro.
+  - Compara o desempenho do mercado em diferentes períodos.
+  - Exemplo: Comparação do preço do BTC nos últimos 3 meses versus o último ano.
 
-notebooks/scenario_simulation.ipynb: Testa o modelo em diferentes condições de mercado, como tendências de alta, baixa e lateralidade.
+- `notebooks/training_model.ipynb`:
 
-Esses notebooks garantem que todas as decisões do agente sejam testadas e validadas antes de entrar em operação real.
+  - Treina a rede neural, ajusta hiperparâmetros e visualiza métricas de aprendizado.
+  - Exemplo: Treinamento de uma rede LSTM para prever oscilações futuras do mercado.
+
+- `notebooks/model_performance.ipynb`:
+
+  - Mede o desempenho do modelo usando métricas como **Sharpe Ratio** e **Max Drawdown**.
+  - Exemplo: Avaliação do risco/retorno do modelo em diferentes condições de mercado.
+
+- `notebooks/backtesting.ipynb`:
+
+  - Simula o desempenho do modelo em dados históricos.
+  - Exemplo: Aplicação de uma estratégia de stop loss em eventos de queda brusca.
+
+- `notebooks/scenario_simulation.ipynb`:
+
+  - Testa o modelo em diferentes condições de mercado, como tendências de alta, baixa e lateralidade.
+  - Exemplo: Simulação de um mercado altamente volátil para medir a resiliência do modelo.
+
+Esses notebooks garantem que todas as decisões do agente sejam **testadas e validadas antes de entrar em operação real**.
 
 
