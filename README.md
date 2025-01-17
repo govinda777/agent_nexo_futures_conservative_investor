@@ -392,6 +392,44 @@ Aqui está um roteiro detalhado para a criação do projeto **Agente Nexo - Inve
 
 Os notebooks do projeto ajudam a analisar e visualizar os dados históricos, permitindo entender tendências e padrões antes do treinamento do modelo.
 
+```mermaid
+graph TD;
+    subgraph Entrada
+        A1(Preço Atual)
+        A2(Volume)
+        A3(Volatilidade)
+        A4(Média Móvel)
+        A5(Sentimento de Mercado)
+    end
+    
+    subgraph Processamento
+        B1(Transformer Layer 1)
+        B2(Transformer Layer 2)
+        B3(DNN Neurônio 1)
+        B4(DNN Neurônio 2)
+        B5(DNN Neurônio 3)
+    end
+    
+    subgraph Decisão e Execução
+        C1(Política PPO)
+        C2(Ajuste de Stop Loss/Take Profit)
+        C3(Execução de Ordem)
+    end
+    
+    A1 -->|Feature Extraction| B1
+    A2 -->|Feature Extraction| B1
+    A3 -->|Feature Extraction| B2
+    A4 -->|Feature Extraction| B2
+    A5 -->|Feature Extraction| B3
+    B1 -->|Padrões Temporais| B3
+    B2 -->|Padrões Temporais| B4
+    B3 -->|Predição de Tendência| C1
+    B4 -->|Predição de Tendência| C1
+    B5 -->|Risco & Recompensa| C2
+    C1 -->|Decisão de Ação| C3
+    C2 -->|Gerenciamento de Risco| C3
+```
+
 ### 📊 Exemplos de Uso dos Notebooks
 
 - `notebooks/data_exploration.ipynb`:
