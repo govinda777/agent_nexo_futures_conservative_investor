@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Executar testes
+npm run test:all
+
+# Se os testes falharem, impedir o commit
+if [ $? -ne 0 ]; then
+  echo "❌ Testes falharam. Por favor corrija os erros antes de commitar."
+  exit 1
+fi
