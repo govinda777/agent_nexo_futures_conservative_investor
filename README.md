@@ -83,7 +83,7 @@ A **rede neural** do agente é composta por **três módulos principais**:
 5. **Backtesting** 🔄: Simula operações para ver como o modelo se sairia em diferentes cenários.
 6. **Ajustes contínuos** 📈: O agente melhora ao longo do tempo, adaptando-se ao mercado.
 
-### 📊 ### 📊 Diagrama Detalhado da Rede Neural
+### 📊 Diagrama Detalhado da Rede Neural
 ```mermaid
 graph LR;
     subgraph Entrada
