@@ -384,6 +384,77 @@ Aqui está um roteiro detalhado para a criação do projeto **Agente Nexo - Inve
 
 ---
 
+# 📈 Diagrama de Treinamento e Jogos do Agente Nexo
+
+## 🎯 Objetivo
+Este diagrama detalha o processo de **treinamento** e os **cenários de simulação** que o Agente Nexo enfrentará para aprender estratégias de investimento conservadoras no mercado de futuros BTC/USDT.
+
+---
+
+## 🔄 Fluxo de Treinamento
+
+```mermaid
+graph TD;
+    A[Coleta de Dados] -->|Preços, Volume, Volatilidade| B[Pré-processamento]
+    B -->|Normalização, Filtragem| C[Modelo Supervisionado]
+    C -->|Aprendizado Inicial| D[Aprendizado por Reforço]
+    D -->|Testa Diferentes Estratégias| E[Backtesting]
+    E -->|Simula Perfis de Mercado| F[Ajustes Contínuos]
+    F -->|Refina a Estratégia| G[Deploy no Mercado Real]
+```
+
+---
+
+## 🎮 Jogos e Cenários de Treinamento
+
+### **1️⃣ Mercado de Baixa Extrema (Bear Market)**
+🔹 **Objetivo:** Ensinar o agente a **evitar perdas** e encontrar pontos de entrada seguros.
+🔹 **Cenário:** Queda de 10% no mercado em curto tempo.
+🔹 **Recompensa:** Evitar perdas acima de 5% e identificar entrada lucrativa.
+
+### **2️⃣ Mercado Lateral (Consolidação)**
+🔹 **Objetivo:** Operar eficientemente em **mercados sem tendência**.
+🔹 **Cenário:** O preço oscila entre 40.000 e 42.000 USDT.
+🔹 **Recompensa:** Acertos dentro da faixa geram ganhos; operar fora resulta em penalizações.
+
+### **3️⃣ Pump & Dump (Volatilidade Extrema)**
+🔹 **Objetivo:** Evitar armadilhas e capturar movimentos rápidos.
+🔹 **Cenário:** Mercado sobe 15% e depois cai 20% rapidamente.
+🔹 **Recompensa:** Correta identificação de entrada segura.
+
+### **4️⃣ Notícias Impactantes**
+🔹 **Objetivo:** Adaptar-se a eventos inesperados.
+🔹 **Cenário:** Notícia altera o sentimento do mercado.
+🔹 **Recompensa:** Ajustar estratégia corretamente conforme a notícia.
+
+### **5️⃣ Flash Crash (Queda Rápida e Recuperação)**
+🔹 **Objetivo:** Reagir rapidamente e identificar oportunidades.
+🔹 **Cenário:** BTC despenca 10% e recupera 8% logo após.
+🔹 **Recompensa:** Comprar no momento certo.
+
+---
+
+## 🔗 Conexões Entre Treinamento e Estratégia
+
+```mermaid
+graph LR;
+    subgraph Treinamento
+        T1(Dados Históricos) -->|Aprendizado Supervisionado| T2(Refinamento com Reforço)
+        T2 -->|Testes em Simulação| T3(Ajuste da Política PPO)
+    end
+
+    subgraph Execução
+        E1(Aplica Estratégia Aprendida) -->|Monitoramento Contínuo| E2(Ajuste Dinâmico)
+    end
+
+    T3 -->|Backtesting| E1
+    E2 -->|Feedback para Aprendizado| T2
+```
+
+🚀 **Essa estrutura garante que o Agente Nexo aprenda com diferentes cenários e refine continuamente sua estratégia!**
+
+---
+
 🚀 **Esse roteiro garante que o Agente Nexo seja desenvolvido com eficiência e segurança!**
 
 ---
