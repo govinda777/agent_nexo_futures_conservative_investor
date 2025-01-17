@@ -192,4 +192,120 @@ nexo_futures_ai/
 
 Essa estrutura ajuda a manter o projeto organizado e modular, facilitando o desenvolvimento e a manutenção.
 
+---
+
+## Tests
+
+Aqui está um roteiro detalhado para a criação do projeto **Agente Nexo - Investimento Conservador**.
+
+---
+
+## 📌 **Roteiro para a Criação do Projeto**
+
+### **1️⃣ Planejamento Inicial**
+1. **Definir os objetivos do agente**
+   - O agente deve operar de forma conservadora no mercado de futuros BTC/USDT.
+   - Ajuste dinâmico de **stop loss** e **take profit** para evitar perdas excessivas.
+   - Envio de notificações via **Telegram** para monitoramento contínuo.
+
+2. **Escolher as tecnologias e ferramentas**
+   - **Linguagem**: Python
+   - **Frameworks para Machine Learning**: TensorFlow, Keras, Stable-Baselines3
+   - **APIs**: API da Nexo para ordens e preços
+   - **Banco de Dados**: SQLite/PostgreSQL (para armazenar histórico de operações)
+   - **Serviço de Mensageria**: Telegram Bot API
+   - **Ferramentas de CI/CD**: GitHub Actions + Docker
+
+---
+
+### **2️⃣ Coleta e Processamento de Dados**
+1. **Coletar dados de mercado**
+   - Criar um script Python para acessar a API da Nexo e buscar preços, volumes, médias móveis e volatilidade.
+   - Armazenar os dados em um banco de dados.
+
+2. **Pré-processamento dos dados**
+   - Remover outliers e normalizar dados.
+   - Criar novos indicadores técnicos relevantes para a decisão do agente.
+
+---
+
+### **3️⃣ Desenvolvimento da Rede Neural**
+1. **Definição da Arquitetura**
+   - **Entrada**: Preço atual, volume, volatilidade, médias móveis, sentimento de mercado.
+   - **Camada Oculta**:
+     - **Transformers** para análise de séries temporais.
+     - **Redes Neurais Densas (DNNs)** para combinação de múltiplas features.
+   - **Saída**:
+     - Decisão de **compra, venda ou manutenção** da posição.
+     - Ajuste dinâmico de **stop loss** e **take profit**.
+
+2. **Treinamento do Modelo**
+   - Treinar inicialmente com **dados históricos** para aprendizado supervisionado.
+   - Refinar a estratégia com **Aprendizado por Reforço Profundo (PPO)**.
+   - Realizar **backtesting** para testar a eficiência do modelo antes da implantação.
+
+---
+
+### **4️⃣ Implementação do Sistema de Execução de Ordens**
+1. **Conectar o agente à API da Nexo**
+   - Criar funções para enviar ordens de compra e venda.
+   - Monitorar posições abertas e ajustar **stop loss** e **take profit** dinamicamente.
+
+2. **Gerenciamento de Risco**
+   - Implementar controle de alavancagem baseado na volatilidade do mercado.
+   - Aplicar regras para evitar **overtrading**.
+
+---
+
+### **5️⃣ Integração de Notificações e Monitoramento**
+1. **Configurar bot no Telegram**
+   - Criar um bot e obter o token API.
+   - Implementar funções para envio de mensagens sobre novas operações e ajustes de risco.
+
+2. **Gerar Logs e Alertas**
+   - Registrar todas as operações em um arquivo de log e banco de dados.
+   - Criar um dashboard (opcional) para visualização do desempenho.
+
+---
+
+### **6️⃣ Automação com CI/CD**
+1. **Configurar GitHub Actions**
+   - Criar um workflow para rodar testes automatizados em cada push.
+   - Configurar deploy automático para um servidor remoto.
+
+2. **Containerização com Docker**
+   - Criar um `Dockerfile` para facilitar a implantação do agente em servidores diferentes.
+   - Configurar um `docker-compose.yml` para rodar o banco de dados e o agente.
+
+---
+
+### **7️⃣ Testes e Validação**
+1. **Testes Unitários**
+   - Criar testes para garantir que o agente esteja tomando decisões corretas.
+   - Testar integração com a API da Nexo.
+
+2. **Backtesting**
+   - Simular estratégias em dados passados para verificar o desempenho.
+
+3. **Teste em ambiente real (com capital reduzido)**
+   - Rodar o agente em conta real com pequeno capital antes da implantação definitiva.
+
+---
+
+### **8️⃣ Implantação e Manutenção**
+1. **Deploy final do agente**
+   - Executar o agente 24/7 em um servidor seguro.
+   - Monitorar logs e performance.
+
+2. **Melhorias Contínuas**
+   - Ajustar a rede neural conforme o mercado muda.
+   - Implementar novas métricas para análise de desempenho.
+
+---
+
+🚀 **Esse roteiro garante que o Agente Nexo seja desenvolvido com eficiência e segurança!**
+
+---
+
+
 
