@@ -989,6 +989,114 @@ O treinamento será dividido em **jogos/simulações**, onde o agente enfrentar�
 
 ---
 
+┌─────────────────────────────────────────────────────────────────────────┐
+│        SISTEMA DE MEDALHAS BASEADO EM LUCRO E MÉTRICAS DE PERFORMANCE  │
+└─────────────────────────────────────────────────────────────────────────┘
+
+A ideia é que as **medalhas** sejam concedidas aos indivíduos (modelos) que conseguem se **manter lucrativos** ao longo dos cenários de teste, mas também respeitando métricas adicionais de **risco** e **consistência**. Abaixo, apresento um esquema mais detalhado para integrar **lucro**, **drawdown**, **taxa de acerto** e outras estatísticas.
+
+## 1. Pontuação Geral (Score)
+
+Para que cada indivíduo seja avaliado de forma **objetiva**, podemos criar um **Score Global** que agregue vários indicadores. Por exemplo:
+
+1. **Lucro Acumulado** (Profit Factor)
+   - Mede o total de lucro (ou prejuízo) ao final dos cenários de teste.
+   - Ex.: Se o modelo terminou com +15% sobre o capital inicial, recebe uma pontuação proporcional.
+
+2. **Stability Score** (Drawdown e Volatilidade)
+   - Penaliza modelos que geram picos de perda (max drawdown) ou têm comportamento muito volátil.
+   - Ex.: Se o max drawdown for menor que 15%, recebe um bônus na pontuação final.
+
+3. **Consistência de Retornos** (Sharpe ou Sortino Ratio)
+   - Avalia se o modelo gera um **retorno estável**, ajustado ao risco.
+   - Ex.: Quanto maior o Sharpe/Sortino Ratio, maior a pontuação.
+
+4. **Taxa de Acerto** / **Taxa de Operações Lucrativas**
+   - Mede quantos trades terminaram no lucro em relação ao total.
+   - Mesmo com bom lucro, se a taxa de acerto for muito baixa, a pontuação final cai.
+
+5. **Performance em Múltiplos Cenários** (Bear, Lateral, Pump & Dump, etc.)
+   - Verifica se o indivíduo **não “bamba”** em algum cenário.  
+   - Modelos que conseguem manter a **lucratividade** em todos os cenários recebem pontuação adicional.
+
+> **Fórmula genérica**:  
+> \[
+> \text{Score Global} = w_1 \times \text{Lucro} \;+\; w_2 \times \text{Estabilidade} \;+\; w_3 \times \text{Consistência} \;+\; w_4 \times \text{Taxa de Acerto} \;+\; w_5 \times \text{MultiCenários}
+> \]  
+> Onde \(w_i\) são pesos que você define para cada indicador, priorizando a “filosofia” do projeto (ex.: conservador → peso maior em estabilidade e drawdown).
+
+---
+
+## 2. Regras Básicas para Ganhar Medalha
+
+- **Regra Geral**: O modelo **deve** terminar os cenários **lucrativo** (lucro >= 0) para ser elegível a qualquer medalha.  
+- **Restrições de Segurança**:  
+  - Se o drawdown excede 30%, o modelo fica **desclassificado** de premiações altas (apenas recebe “bronze” ou nenhuma).  
+  - Se a taxa de acerto for muito baixa (ex.: < 40%), também não passa de “bronze” ou “sem medalha”.  
+
+**Pontuação Final** → **Medalha**:
+- **Ouro**: Score Global >= 80 + lucros positivos em todos os cenários.  
+- **Prata**: Score Global entre 65 e 79 + não teve drawdown > 25%.  
+- **Bronze**: Score Global entre 50 e 64 + não teve drawdown > 30%.  
+- **Sem Medalha**: Abaixo de 50 pontos ou lucro negativo.
+
+*(Obs.: Os números acima são exemplos, adapte conforme sua análise e amplitude de valores.)*
+
+---
+
+## 3. Possível Exemplo de Cálculo
+
+**Exemplo** de como pontuar um modelo ao final dos “jogos”:
+
+| Indicador                | Valor Exemplo   | Conversão em Pontos   |
+|--------------------------|-----------------|------------------------|
+| Lucro Total             | +12%            | +30 pontos            |
+| Drawdown Máximo         | 18%             | +20 pontos (pequena penalidade) |
+| Sharpe Ratio            | 1.8             | +20 pontos            |
+| Taxa de Acerto Geral    | 58%             | +10 pontos            |
+| Cenários Sem Perdas     | 4 de 5          | +10 pontos            |
+
+> **Score Global** = 30 + 20 + 20 + 10 + 10 = **90** → **Medalha de Ouro**  
+> (Pois foi lucrativo e pontuou acima de 80.)
+
+Outro modelo, com 8% de lucro, 25% drawdown e Sharpe 1.2, pode ter:
+- Lucro +25 pontos  
+- Drawdown 25% +10 pontos  
+- Sharpe 1.2 +15 pontos  
+- Acerto 50% +5 pontos  
+- Cenários sem perdas 3/5 +5 pontos  
+**Score = 25+10+15+5+5= 60** → **Medalha de Bronze** (exemplo de corte).
+
+---
+
+## 4. Gamificação com Medalhas Especiais
+
+Além das medalhas principais (Ouro/Prata/Bronze), você pode ter **conquistas extras** relacionadas especificamente ao **lucro** em cada cenário, por exemplo:
+
+1. **“Investidor de Aço”**  
+   - Quando o modelo mantém **lucro positivo** mesmo em Bear Market severo, sem drawdown acima de 20%.
+
+2. **“Sniper de Volatilidade”**  
+   - Quando captura lucros acima de x% em cenários de **Pump & Dump**, entrando e saindo “no ponto”.
+
+3. **“Blindado contra Flash Crash”**  
+   - Zero posições liquidadas durante um flash crash, mantendo-se ainda no verde (lucro >= 0).
+
+Essas medalhas especiais **incentivam** a excelência em aspectos específicos do mercado.
+
+---
+
+## 5. Resumo e Conclusão
+
+Com esse **sistema de medalhas** orientado a **lucratividade e métricas de risco**, você:
+
+1. **Garante** que apenas indivíduos efetivamente lucrativos recebam medalhas.  
+2. **Premia** a consistência e estabilidade, alinhada ao foco conservador.  
+3. **Adota** um Score Global que equilibra múltiplos indicadores (lucro, drawdown, Sharpe, taxa de acerto).  
+4. **Gamifica** o aprendizado, criando um ranking onde cada modelo (indivíduo) busca pontuar o máximo possível nos cenários de simulação.
+
+---
+
 ## 🧠 Como o Agente Aprende a Melhor Estratégia?
 
 1. **Simulações Massivas**
