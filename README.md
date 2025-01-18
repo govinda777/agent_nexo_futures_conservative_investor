@@ -6,8 +6,6 @@ Este é um programa automático que ajuda a investir em Bitcoin (BTC) na platafo
 
 ## Passos
 
-Aqui está a leitura do seu documento atualizado:
-
 ---
 
 # **Estrutura Avançada para Implementação do Projeto**
@@ -96,8 +94,49 @@ Para fazer previsões mais precisas, é essencial entender alguns conceitos esta
   - **Erro Médio Absoluto (MAE)**: Indica, em média, o quão distante a previsão está do valor real.
   - **Coeficiente de Determinação (R²)**: Indica o quão bem o modelo consegue explicar a variação dos preços.
 
-#### **Entendendo Relações entre os Dados**
-- Muitas vezes, os preços de ativos seguem ciclos ou padrões sazonais. Ferramentas como **ACF (Autocorrelation Function)** e **PACF (Partial Autocorrelation Function)** ajudam a entender se há relações entre preços passados e futuros.
+Aqui está uma versão mais simples e intuitiva desse trecho:  
+
+---
+
+### **Entendendo Relações entre os Dados**  
+
+Os preços dos ativos não se movimentam de forma completamente aleatória. Muitas vezes, eles seguem certos padrões que podem se repetir ao longo do tempo.  
+
+- Por exemplo, um ativo pode subir toda vez que há um aumento na demanda ou cair em períodos de incerteza no mercado.  
+- Para descobrir esses padrões, analisamos se os preços passados influenciam os preços futuros.  
+- Muitas vezes, os preços de ativos seguem ciclos ou padrões sazonais.
+  Ferramentas como
+  **ACF (Autocorrelation Function)** 
+  **PACF (Partial Autocorrelation Function)**
+  ajudam a entender se há relações entre preços passados e futuros.
+
+---
+
+#### **ACF e PACF: Como Entender a Relação Entre os Preços Passados e Futuros**  
+
+Quando tentamos prever os preços de um ativo, precisamos entender como os valores anteriores influenciam os próximos. Para isso, usamos dois métodos importantes:  
+
+##### **1. ACF (Função de Autocorrelação)**  
+- A ACF mede o quanto os preços passados estão relacionados com os preços futuros.  
+- Por exemplo, se o preço de uma ação hoje for muito parecido com o de ontem e de anteontem, há uma forte autocorrelação.  
+- Isso significa que o comportamento recente pode ser útil para prever os próximos valores.  
+
+💡 **Exemplo prático:** Se o preço do ouro sobe por três dias seguidos, pode ser que ele tenha uma tendência de continuar subindo, e a ACF ajudaria a medir essa relação.  
+
+##### **2. PACF (Função de Autocorrelação Parcial)**  
+- A PACF é parecida com a ACF, mas ela mede apenas a relação direta entre um preço e um dia específico no passado, ignorando influências intermediárias.  
+- Isso ajuda a descobrir quais períodos passados realmente influenciam os preços futuros, sem que a análise seja distorcida por efeitos acumulados.  
+
+💡 **Exemplo prático:** Se o preço de uma ação hoje está fortemente ligado ao preço de três dias atrás, mas não é afetado pelos preços intermediários, a PACF mostrará essa relação direta.  
+
+---
+
+#### **Por que isso é importante?**  
+- ACF e PACF ajudam a identificar quais períodos passados são realmente importantes para prever os próximos preços.  
+- Essas informações são essenciais para escolher o melhor modelo de previsão e evitar erros ao tentar encontrar padrões que não existem.  
+
+---
+
 - Isso permite ajustar o modelo para capturar melhor essas tendências.
 
 #### **Testando a Confiabilidade dos Dados**
