@@ -192,10 +192,71 @@ graph TD;
 
 🚀 **A incorporação das LSTM em estratégias de investimento pode proporcionar uma vantagem competitiva significativa para traders e investidores institucionais!**
 
-### **1.3. Objetivos Ambiciosos do Projeto**
-- Criar um modelo LSTM de alta performance.
-- Otimizar hiperparâmetros para máxima precisão.
-- Desenvolver um pipeline automatizado para previsões contínuas.
+---
+### 1.3. Objetivos Ambiciosos do Projeto
+
+#### 🧠 **Diagrama do Neurônio do Projeto**
+```mermaid
+graph TD;
+    A[Entradas: Preço, Volume, Notícias, Indicadores] -->|Pré-processamento| B[Normalização de Dados]
+    B -->|Sequenciamento Temporal| C[Camada LSTM]
+    C -->|Extração de Padrões| D[Camada Densa]
+    D -->|Ativação ReLU| E[Neurônios de Decisão]
+    E -->|Classificação| F[Saída: Comprar, Vender, Manter]
+    E -->|Ajuste Dinâmico| G[Stop Loss/Take Profit Adaptativo]
+```
+
+O projeto **Agente Nexo - Investimento Conservador** tem como meta criar um sistema de investimento seguro e eficiente para operar no mercado de futuros BTC/USDT. A ideia principal é permitir que qualquer investidor possa operar de forma automatizada, sem precisar monitorar o mercado o tempo todo.
+
+#### **Principais Objetivos do Projeto:**
+
+1. **Criar um modelo inteligente para prever tendências de preços:**
+   - O agente usará um modelo chamado **LSTM**, que aprende com o histórico de preços para prever os próximos movimentos do mercado.
+   - **Exemplo:** Se o Bitcoin estiver subindo há vários dias seguidos, o modelo pode sugerir uma venda antecipada antes de uma possível queda.
+
+2. **Automatizar a análise de dados do mercado:**
+   - O sistema coletará e analisará os preços de forma contínua, sem precisar de intervenção humana.
+   - **Exemplo:** A cada minuto, o agente verifica as informações do mercado e identifica padrões que podem indicar alta ou baixa nos preços.
+
+3. **Ajustar automaticamente as estratégias de compra e venda:**
+   - O modelo ajustará **stop loss** (limite de perda) e **take profit** (lucro esperado) conforme o comportamento do mercado.
+   - **Exemplo:** Se o preço do Bitcoin começar a cair rapidamente, o agente pode vender antes que a perda seja grande demais.
+
+4. **Reduzir riscos para os investidores:**
+   - O sistema evitará operações arriscadas e usará apenas estratégias seguras.
+   - **Exemplo:** Se o mercado estiver muito volátil, o agente pode decidir não operar até encontrar uma oportunidade mais estável.
+
+5. **Integrar notícias e sentimento do mercado na análise:**
+   - O agente levará em conta notícias e postagens em redes sociais para identificar momentos de otimismo ou pessimismo no mercado.
+   - **Exemplo:** Se grandes sites de finanças começarem a relatar más notícias sobre criptomoedas, o agente pode reduzir as compras para evitar perdas.
+
+6. **Executar ordens automaticamente na corretora Nexo:**
+   - O agente se conectará à API da corretora para executar operações sem intervenção humana.
+   - **Exemplo:** Quando o modelo detectar um sinal de compra forte, ele fará a operação automaticamente na Nexo.
+
+7. **Enviar alertas via Telegram para manter o investidor informado:**
+   - O agente notificará o usuário sempre que uma operação importante for realizada.
+   - **Exemplo:** O investidor recebe uma mensagem quando o agente compra ou vende Bitcoin, ou quando o mercado muda drasticamente.
+
+8. **Testar estratégias antes de operar no mercado real:**
+   - O sistema será testado com dados passados para garantir que a estratégia funciona.
+   - **Exemplo:** Se a estratégia for aplicada a dados históricos e mostrar que teria gerado lucro nos últimos meses, ela será validada para uso real.
+
+9. **Melhorar continuamente o desempenho do agente:**
+   - O modelo aprenderá com novas informações e se ajustará conforme o mercado evolui.
+   - **Exemplo:** Se um novo padrão surgir no mercado, o agente poderá aprender com ele e adaptar suas decisões futuras.
+
+10. **Criar um sistema flexível e escalável:**
+    - O agente poderá ser expandido para operar com outros ativos no futuro.
+    - **Exemplo:** Se o investidor quiser operar também com Ethereum, o sistema poderá ser ajustado para incluir essa criptomoeda.
+
+---
+
+### **Conclusão**
+
+O **Agente Nexo - Investimento Conservador** busca criar uma ferramenta automatizada e segura para investidores que querem operar no mercado de futuros BTC/USDT sem precisar de monitoramento constante. Através do uso de inteligência artificial, gerenciamento de risco avançado e automação, o agente ajudará investidores a tomar decisões estratégicas e minimizar riscos, tornando o investimento mais seguro e eficiente.
+
+---
 
 ### **1.4. Estrutura Completa do Documento**
 
