@@ -258,7 +258,107 @@ O **Agente Nexo - Investimento Conservador** busca criar uma ferramenta automati
 
 ---
 
-### **1.4. Estrutura Completa do Documento**
+```bash
+# [CLI] Exibindo a Arquitetura Completa do Projeto no item "1.4. Estrutura Completa do Documento"
+# -------------------------------------------------------------------------------
+# A seguir, você encontra uma visão macro de toda a arquitetura do projeto:
+# desde a coleta de dados, passando pelo treinamento do modelo,
+# até a execução de ordens e notificações no Telegram.
+```
+
+## **1.4. Estrutura Completa do Documento** - **Arquitetura do Projeto**
+
+Para dar maior clareza sobre **como** o projeto se integra de ponta a ponta, apresentamos abaixo um **diagrama de arquitetura** que agrupa todas as etapas do **Agente Nexo - Investimento Conservador**: coleta de dados, processamento, treinamento, execução, controle de risco e notificações.
+
+```mermaid
+flowchart LR
+    subgraph A[Coleta e Pré-Processamento]
+    A1(Dados Históricos de Preço - Nexo/Exchanges)
+    A2(Volumes, Indicadores)
+    A3(Notícias, Sentimento de Mercado)
+    A4(Pré-processamento e Limpeza)
+    end
+
+    subgraph B[Camada de Modelagem e Treinamento]
+    B1(Arquitetura da Rede Neural)
+    B2(LSTM / Transformers / DNN)
+    B3(Treinamento Supervisionado)
+    B4(Aprendizado por Reforço - PPO)
+    B5(Salvando Modelos em "models/")
+    end
+
+    subgraph C[Sistema de Execução e Monitoramento]
+    C1(Recebe Sinais de Entrada da Rede Neural)
+    C2(Ajuste de Stop Loss/Take Profit)
+    C3(Orquestrador de Ordens - API Nexo)
+    C4(Registro de Log e Métricas)
+    C5(Notificações via Telegram)
+    end
+
+    subgraph D[Banco de Dados e Armazenamento]
+    D1(BD/Armazenamento de Históricos)
+    D2(Logs e Resultados de Treinamento)
+    D3(Checkpoints da Rede Neural)
+    end
+
+    A1 --> A4
+    A2 --> A4
+    A3 --> A4
+    A4 --> B1
+    B1 --> B2
+    B2 --> B3
+    B3 --> B4
+    B4 --> B5
+
+    B5 -->|Modelo Treinado| C1
+    C1 -->|Decisão: Compra/Venda| C3
+    C1 -->|Configura Stop Loss/Take Profit| C2
+
+    C3 -->|Envia Execução para Nexo| D1
+    C2 -->|Atualiza Posições| D1
+
+    C4 --> D2
+    C3 -->|Resultado das Ordens| C4
+    C4 --> C5
+    B4 --> D2
+    B5 --> D3
+    A4 --> D1
+```
+
+### **Explicação do Fluxo**
+
+1. **Coleta e Pré-Processamento (Bloco A)**  
+   - Os dados de preços, volumes, indicadores técnicos e até sentimentos de mercado (notícias/tweets) passam por um processo de limpeza e formatação. Em seguida, são armazenados para uso posterior no treinamento.
+
+2. **Camada de Modelagem e Treinamento (Bloco B)**  
+   - Aqui temos a **arquitetura de rede neural** (p. ex. LSTM, Transformers, DNN) e as técnicas de **Aprendizado por Reforço** (PPO) para refinar a estratégia de trading.
+   - Os modelos treinados são salvos em `models/`, ficando prontos para uso na tomada de decisão.
+
+3. **Sistema de Execução e Monitoramento (Bloco C)**  
+   - Recebe **sinais de compra/venda** do modelo treinado e faz os ajustes automáticos de **stop loss** e **take profit**.
+   - Conecta-se à **API da Nexo** para abrir, fechar ou atualizar posições de forma automática e segura.
+   - Gera logs de cada operação, registra métricas de desempenho e envia alertas via **Telegram**.
+
+4. **Banco de Dados e Armazenamento (Bloco D)**  
+   - **Armazena** todo o histórico de preços coletado, as métricas de treinamento (logs) e **checkpoints** dos modelos.
+   - Facilita **backtesting** e auditoria do sistema, além de servir de base para o aprimoramento contínuo.
+
+---
+
+### **Onde cada capítulo do Documento se encaixa nessa Arquitetura**
+
+- **Capítulo 1 (Visão Geral):** Contextualiza o desafio do mercado financeiro, a relevância das LSTM/Transformers e define os objetivos de um sistema de investimento conservador.  
+- **Capítulo 2 (Fundamentos Teóricos):** Apresenta os diferentes tipos de redes neurais e métodos estatísticos que embasam o bloco B (Modelagem/Aprendizado).  
+- **Capítulo 3 (Engenharia de Dados):** Refere-se diretamente ao bloco A, descrevendo as fontes de dados, como limpá-los e tratá-los para alimentação do modelo.  
+- **Capítulo 4 (Arquitetura da Rede LSTM):** Desdobra a parte crucial do bloco B, mostrando a criação das camadas LSTM, CNN ou Transformers, bem como as escolhas de hiperparâmetros.  
+- **Capítulo 5 (Predição e Validação):** Foca nas etapas de teste rigoroso e backtesting do sistema (ainda dentro do bloco B, mas também registrando no bloco D).  
+- **Capítulo 6 (Integração com Trading):** Conecta o bloco B ao bloco C (Execução), detalhando como as previsões viram ordens automáticas, gerando logs e alertas.  
+- **Capítulo 7 (Considerações Finais):** Avalia resultados, mostra as conquistas e expande possibilidades para melhorar a arquitetura (ex.: novas features, mais fontes de dados).  
+- **Capítulo 8 (Recursos Avançados):** Indica bibliotecas, frameworks e leituras que podem complementar tanto a camada de dados quanto a de modelagem, além de redes de apoio na comunidade.
+
+---
+
+#### **Com esse diagrama e explicação, a "arquitetura do projeto" se torna visível** dentro do item **"1.4. Estrutura Completa do Documento"**, dando sustentação prática a cada capítulo e seção apresentados.
 
 ---
 
