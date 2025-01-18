@@ -1,122 +1,4 @@
-# 📚 Agent
-
-## **📌 Definição do Agente de Investimentos Conservador**
-
-Este agente é uma **rede neural inteligente** que opera no **mercado de futuros BTC/USDT** usando técnicas avançadas de **aprendizado de máquina**. Ele aprende a investir de forma **segura e eficiente**, ajustando sua estratégia de acordo com diferentes condições de mercado.
-
-Para estruturar o agente, utilizamos o modelo **PEAS**, que nos ajuda a entender **como ele funciona e quais são seus componentes principais**.
-
----
-
-# **🧠 PEAS: Estruturando o Agente**
-
-## **1️⃣ Performance (Medida de Desempenho)**  
-A **performance** define como medimos o sucesso do agente. Aqui, buscamos um **equilíbrio entre lucratividade e segurança**.
-
-### 🎯 **Objetivos de Performance**
-- **Ganhar dinheiro de forma consistente** 📈 → O agente deve manter **lucros positivos** ao longo do tempo.
-- **Minimizar perdas** 🚨 → Ele precisa evitar quedas bruscas no portfólio.
-- **Ser estável e confiável** ⚖️ → Deve operar com baixa volatilidade e evitar grandes riscos.
-
-### 🔢 **Métricas de Avaliação**
-Essas são as **ferramentas matemáticas** que usamos para medir o desempenho do agente:
-
-| **Métrica**           | **O que mede?** | **Como avaliar?** |
-|-----------------------|----------------|------------------|
-| **Retorno Total (%)** | O lucro final obtido. | Quanto maior, melhor. |
-| **Sharpe Ratio** | Relação entre retorno e risco. | Deve ser maior que 1.5 para uma estratégia conservadora. |
-| **Sortino Ratio** | Como o agente lida com riscos negativos. | Deve ser superior a 1 para evitar grandes quedas. |
-| **Máximo Drawdown (%)** | Maior perda sofrida em um período. | Deve ser **menor que 20%** para evitar perdas grandes. |
-| **Taxa de Acerto (%)** | Percentual de operações lucrativas. | Acima de 50% é o ideal. |
-| **Profit Factor** | Lucro bruto dividido pelo prejuízo bruto. | Deve ser superior a 1.5 para indicar consistência. |
-
-### 🏆 **Sistema de Premiação do Modelo**
-O agente será avaliado com base em seu desempenho. Se ele tiver **bons resultados**, ganha **medalhas**:
-
-- **🥇 Medalha de Ouro** → Alto lucro, drawdown baixo, excelente Sharpe Ratio.
-- **🥈 Medalha de Prata** → Lucros consistentes, mas com drawdown um pouco maior.
-- **🥉 Medalha de Bronze** → Estratégia conservadora, mas pode melhorar.
-
----
-
-## **2️⃣ Environment (Ambiente)**
-O **ambiente** é onde o agente opera. Ele precisa entender o que acontece no **mercado financeiro** para tomar boas decisões.
-
-### 🌍 **O que o Agente Precisa Considerar?**
-1. **Mercado de Futuros BTC/USDT** 🔄  
-   - O agente negocia **contratos futuros** (ativos que variam com o preço do Bitcoin).
-   - Ele pode **comprar (long)** ou **vender (short)** para lucrar tanto na alta quanto na baixa.
-
-2. **Dados de Mercado** 📊  
-   - **Preço do Bitcoin** → Monitorado em tempo real.
-   - **Volume de negociação** → Importante para entender tendências.
-   - **Volatilidade** → Mede a intensidade das variações de preço.
-
-3. **Condições de Mercado** 🎮  
-O agente precisa aprender a lidar com diferentes cenários, como:
-   - **Bear Market** 🐻 → Evitar perdas em mercados de queda.
-   - **Mercado Lateral** 🔄 → Identificar momentos certos para entrar e sair.
-   - **Pump & Dump** 🚀 → Não cair em armadilhas de manipulação.
-   - **Notícias Impactantes** 📰 → Ajustar estratégia quando houver eventos inesperados.
-   - **Flash Crash** ⚡ → Reagir rapidamente a quedas bruscas.
-
-4. **Fatores Externos** 🏦  
-   - **Política monetária** e **taxas de juros** podem afetar os preços dos ativos.
-   - **Sentimento do mercado** → Se há medo ou otimismo, isso impacta as decisões.
-
----
-
-## **3️⃣ Actuators (Atuadores)**
-Os **atuadores** são as **ações** que o agente pode tomar no mercado. Ele deve ser capaz de **operar automaticamente** e ajustar sua estratégia.
-
-### 🔧 **O que o Agente pode Fazer?**
-1. **📤 Enviar Ordens de Compra/Venda**  
-   - Ele pode abrir e fechar posições automaticamente através da **API da corretora Nexo**.
-
-2. **🔄 Ajustar Stop-Loss e Take-Profit**  
-   - O agente define pontos automáticos para **fechar uma operação com lucro (take-profit)** ou **limitar perdas (stop-loss)**.
-
-3. **⚠️ Mecanismo de Segurança (Circuit Breaker)**  
-   - Se o agente perder várias operações seguidas, ele **pausa automaticamente** para reavaliar a estratégia.
-
-4. **📊 Rebalanceamento da Posição**  
-   - Ele pode **aumentar ou reduzir** a exposição ao mercado conforme necessário.
-
----
-
-## **4️⃣ Sensors (Sensores)**
-Os **sensores** são as fontes de informação que o agente utiliza para tomar decisões. Ele precisa "enxergar" o mercado de forma inteligente.
-
-### 📡 **Quais dados o agente coleta?**
-1. **Dados de Preço e Volume** 🏦  
-   - Cotação do BTC/USDT em tempo real.
-   - Volume de negociação nos últimos minutos/horas.
-
-2. **Indicadores Técnicos** 📈  
-   - **Médias Móveis (SMA/EMA)** → Para identificar tendências.
-   - **Índice de Força Relativa (RSI)** → Mede se um ativo está sobrecomprado ou sobrevendido.
-   - **Bandas de Bollinger** → Indica momentos de alta volatilidade.
-
-3. **Análise Fundamentalista** 🏛  
-   - Acompanha **notícias e relatórios** que possam influenciar o mercado.
-   - Considera **taxas de juros** e **política econômica global**.
-
-4. **Sentimento do Mercado** 📰  
-   - Analisa **notícias** e **posts em redes sociais** para identificar o humor do mercado.
-   - Se muitas pessoas estão otimistas, pode ser um sinal de alta. Se estão pessimistas, pode indicar queda.
-
----
-
-## **🚀 Como o Agente Aprende?**
-O agente não apenas **toma decisões**, mas também **aprende e melhora** ao longo do tempo.
-
-### 🎓 **Treinamento do Agente**
-1. **📊 Coleta de Dados** → O agente analisa preços, volume e outros fatores.  
-2. **🔍 Pré-processamento** → Filtra dados irrelevantes e normaliza as informações.  
-3. **🤖 Aprendizado Supervisionado** → Treina com dados passados para reconhecer padrões.  
-4. **🏆 Aprendizado por Reforço (PPO)** → Simula operações para testar diferentes estratégias.  
-5. **🔄 Backtesting** → Avalia como o modelo se sairia em cenários reais.  
-6. **📈 Ajustes Contínuos** → O agente melhora ao longo do tempo, adaptando-se às mudanças do mercado.  
+## 📚 Agent
 
 A **rede neural** do agente é composta por **três módulos principais**:
 
@@ -205,6 +87,137 @@ graph TD;
     F -->|Feedback para Aprendizado| H[Recompensa/Penalização]
     H -->|Melhoria Contínua| I[Aprendizado por Reforço]
 ```
+
+---
+
+### **📌 Definição Detalhada e Didática do Agente de Investimentos Conservador**
+
+O objetivo deste agente é **tomar decisões inteligentes no mercado de futuros BTC/USDT**, buscando **maximizar os lucros** e **minimizar os riscos**. Para isso, ele usa uma **rede neural avançada**, que aprende com os dados do mercado e ajusta suas estratégias automaticamente.
+
+Para estruturar o agente, utilizamos o modelo **PEAS**. Essa sigla representa quatro componentes principais:
+
+- **P** (Performance) → Como medir se o agente está indo bem ou mal.  
+- **E** (Environment - Ambiente) → Onde o agente opera e quais fatores ele precisa considerar.  
+- **A** (Actuators - Atuadores) → O que o agente pode fazer para influenciar o mercado.  
+- **S** (Sensors - Sensores) → Como o agente coleta informações para tomar decisões.  
+
+Agora, vamos analisar cada um desses componentes com **explicações fáceis de entender e exemplos práticos**.
+
+---
+
+## **1️⃣ Performance (Medida de Desempenho)**
+📌 **O que isso significa?**  
+Performance é a forma como **medimos se o agente está sendo eficiente ou não**.  
+
+### 🔍 **Como saber se o agente está indo bem?**
+Podemos usar **métricas financeiras** para avaliar seu desempenho. Aqui estão algumas das principais:
+
+| **Métrica**               | **O que mede?** | **Exemplo prático** |
+|---------------------------|----------------|------------------|
+| **Retorno Total (%)**      | Quanto dinheiro o agente ganhou. | Se o agente começou com $1.000 e agora tem $1.200, o retorno é 20%. |
+| **Sharpe Ratio**          | Se o agente está gerando lucro sem correr muito risco. | Se o agente ganha 10% ao mês, mas com muita oscilação, o Sharpe pode ser baixo. |
+| **Sortino Ratio**         | Mede o risco de quedas inesperadas. | Se um agente tem quedas muito grandes, o Sortino Ratio será baixo. |
+| **Máximo Drawdown (%)**   | A maior perda sofrida antes de recuperar. | Se o agente perdeu 15% do capital antes de voltar a lucrar, esse é o Drawdown. |
+| **Taxa de Acerto (%)**    | Quantas operações foram lucrativas. | Se o agente fez 100 operações e 60 deram lucro, a taxa de acerto é 60%. |
+| **Profit Factor**         | Relação entre o lucro e o prejuízo. | Se o agente ganhou $2.000 e perdeu $1.000, o Profit Factor é 2. |
+
+### 🏆 **Sistema de Premiação**
+Podemos dar **medalhas** para incentivar um comportamento mais seguro:
+
+- **🥇 Medalha de Ouro** → O agente tem lucros consistentes e evita riscos altos.  
+- **🥈 Medalha de Prata** → Lucros aceitáveis, mas ainda pode melhorar a estabilidade.  
+- **🥉 Medalha de Bronze** → Evita grandes perdas, mas precisa melhorar os lucros.  
+
+---
+
+## **2️⃣ Environment (Ambiente)**
+📌 **O que isso significa?**  
+O **ambiente** é onde o agente opera. Ele precisa entender as **regras do jogo** para tomar boas decisões.  
+
+### 🎯 **Onde o agente opera?**
+- **Mercado de Futuros BTC/USDT** 🔄  
+  - Aqui, o agente pode **comprar (apostar na alta)** ou **vender (apostar na baixa)**.  
+  - Ele **não precisa ter o ativo para operar**, apenas prevê se o preço vai subir ou descer.  
+
+- **Dados de Mercado** 📊  
+  - O agente analisa **preços, volume e volatilidade**.  
+  - Ele identifica **momentos bons para comprar e vender**.  
+
+- **Eventos Externos** 🏦  
+  - Notícias como **regulação de criptomoedas** ou **decisões do FED (Banco Central dos EUA)** podem influenciar o mercado.  
+
+### 🎮 **Cenários de Treinamento**
+O agente precisa aprender a lidar com diferentes situações:
+
+| **Cenário**           | **O que acontece?** | **Como o agente deve reagir?** |
+|-----------------------|----------------|------------------|
+| **Bear Market** 🐻 | O mercado cai rapidamente. | Deve evitar operar ou encontrar bons momentos para compra. |
+| **Mercado Lateral** 🔄 | O preço oscila entre um intervalo fixo. | O agente pode comprar na parte baixa e vender na parte alta. |
+| **Pump & Dump** 🚀 | O preço sobe rapidamente e depois cai. | Deve evitar entrar tarde demais para não sofrer perdas. |
+| **Notícias Impactantes** 📰 | Um evento inesperado altera o mercado. | O agente precisa interpretar se a notícia terá impacto duradouro. |
+| **Flash Crash** ⚡ | O preço despenca rapidamente e sobe de novo. | O agente precisa evitar vender no pânico e buscar oportunidades. |
+
+---
+
+## **3️⃣ Actuators (Atuadores)**
+📌 **O que isso significa?**  
+Atuadores são as **ações que o agente pode tomar** no mercado. Ele precisa agir de forma **inteligente e segura**.
+
+### 🚀 **O que o agente pode fazer?**
+1. **📤 Enviar Ordens de Compra/Venda**  
+   - Se o agente acha que o BTC vai subir, ele **compra**.  
+   - Se acha que vai cair, ele **vende**.  
+
+2. **🔄 Ajustar Stop-Loss e Take-Profit**  
+   - **Stop-Loss** → Fecha automaticamente uma operação para **limitar perdas**.  
+   - **Take-Profit** → Fecha uma operação **quando o lucro atinge um valor desejado**.  
+
+3. **⚠️ Circuit Breaker (Freio de Segurança)**  
+   - Se o agente tiver **várias perdas seguidas**, ele **para de operar** para evitar mais prejuízo.  
+
+4. **📊 Rebalanceamento de Posição**  
+   - Ele ajusta **quanto dinheiro investir** em cada operação.  
+
+### 📌 **Exemplo prático**
+Imagine que o BTC está em **$40.000** e o agente prevê alta. Ele pode:
+1. Comprar BTC a **$40.000**.
+2. Definir um **Take-Profit** em **$42.000** (saída com lucro).
+3. Definir um **Stop-Loss** em **$39.500** (saída para evitar perdas).
+4. Se atingir $42.000, ele vende e lucra.  
+5. Se cair para $39.500, ele vende para **evitar perdas maiores**.  
+
+---
+
+## **4️⃣ Sensors (Sensores)**
+📌 **O que isso significa?**  
+Sensores são as **ferramentas que o agente usa para coletar informações** e tomar decisões.
+
+### 📡 **Fontes de dados que o agente usa**
+1. **📊 Dados de Preço e Volume**  
+   - BTC/USDT em tempo real.
+   - Volume de negociações.
+
+2. **📈 Indicadores Técnicos**  
+   - **Médias Móveis (SMA/EMA)** → Indicam tendências de alta ou baixa.  
+   - **Índice de Força Relativa (RSI)** → Mede se o ativo está sobrecomprado ou sobrevendido.  
+   - **Bandas de Bollinger** → Identificam momentos de alta volatilidade.  
+
+3. **🏛 Análise Fundamentalista**  
+   - Monitora **notícias e relatórios** que afetam o mercado.  
+   - Considera **decisões econômicas globais**.  
+
+4. **📰 Sentimento do Mercado**  
+   - Analisa postagens no Twitter e notícias para medir o "humor" dos investidores.  
+
+---
+
+# **🎯 Resumo**
+✅ **Analisa o mercado** em tempo real.  
+✅ **Toma decisões** baseadas em aprendizado de máquina.  
+✅ **Opera automaticamente** comprando e vendendo ativos.  
+✅ **Aprende e se adapta** conforme novas informações surgem.  
+
+Esse agente **equilibra lucro e segurança**, garantindo um **investimento conservador** e **inteligente**.  
 
 ---
 
@@ -393,11 +406,5 @@ Com esse **sistema de medalhas** orientado a **lucratividade e métricas de risc
 
 ---
 
-# **🎯 Conclusão**
-Agora, o agente está bem definido! Ele:
-✅ **Analisa o mercado** utilizando dados históricos e em tempo real.  
-✅ **Toma decisões** baseadas em aprendizado de máquina.  
-✅ **Opera automaticamente** comprando e vendendo ativos.  
-✅ **Aprende e se adapta** para melhorar sua performance ao longo do tempo.  
+🚀 **Com esses jogos de treinamento, o agente poderá operar de forma mais inteligente e segura no mercado de futuros BTC/USDT!**
 
-Esse modelo **equilibra segurança e lucratividade**, garantindo um investimento conservador e eficiente.  
