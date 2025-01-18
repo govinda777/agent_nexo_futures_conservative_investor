@@ -258,14 +258,6 @@ O **Agente Nexo - Investimento Conservador** busca criar uma ferramenta automati
 
 ---
 
-```bash
-# [CLI] Exibindo a Arquitetura Completa do Projeto no item "1.4. Estrutura Completa do Documento"
-# -------------------------------------------------------------------------------
-# A seguir, você encontra uma visão macro de toda a arquitetura do projeto:
-# desde a coleta de dados, passando pelo treinamento do modelo,
-# até a execução de ordens e notificações no Telegram.
-```
-
 ## **1.4. Estrutura Completa do Documento** - **Arquitetura do Projeto**
 
 Para dar maior clareza sobre **como** o projeto se integra de ponta a ponta, apresentamos abaixo um **diagrama de arquitetura** que agrupa todas as etapas do **Agente Nexo - Investimento Conservador**: coleta de dados, processamento, treinamento, execução, controle de risco e notificações.
@@ -273,32 +265,32 @@ Para dar maior clareza sobre **como** o projeto se integra de ponta a ponta, apr
 ```mermaid
 flowchart LR
     subgraph A[Coleta e Pré-Processamento]
-    A1(Dados Históricos de Preço - Nexo/Exchanges)
-    A2(Volumes, Indicadores)
-    A3(Notícias, Sentimento de Mercado)
-    A4(Pré-processamento e Limpeza)
+        A1(Dados Históricos de Preço - Nexo/Exchanges)
+        A2(Volumes, Indicadores)
+        A3(Notícias, Sentimento de Mercado)
+        A4(Pré-processamento e Limpeza)
     end
 
     subgraph B[Camada de Modelagem e Treinamento]
-    B1(Arquitetura da Rede Neural)
-    B2(LSTM / Transformers / DNN)
-    B3(Treinamento Supervisionado)
-    B4(Aprendizado por Reforço - PPO)
-    B5(Salvando Modelos em "models/")
+        B1(Arquitetura da Rede Neural)
+        B2(LSTM / Transformers / DNN)
+        B3(Treinamento Supervisionado)
+        B4(Aprendizado por Reforço - PPO)
+        B5(Salvando Modelos em models/)
     end
 
     subgraph C[Sistema de Execução e Monitoramento]
-    C1(Recebe Sinais de Entrada da Rede Neural)
-    C2(Ajuste de Stop Loss/Take Profit)
-    C3(Orquestrador de Ordens - API Nexo)
-    C4(Registro de Log e Métricas)
-    C5(Notificações via Telegram)
+        C1(Recebe Sinais de Entrada da Rede Neural)
+        C2(Ajuste de Stop Loss/Take Profit)
+        C3(Orquestrador de Ordens - API Nexo)
+        C4(Registro de Log e Métricas)
+        C5(Notificações via Telegram)
     end
 
     subgraph D[Banco de Dados e Armazenamento]
-    D1(BD/Armazenamento de Históricos)
-    D2(Logs e Resultados de Treinamento)
-    D3(Checkpoints da Rede Neural)
+        D1(Armazenamento de Históricos)
+        D2(Logs e Resultados de Treinamento)
+        D3(Checkpoints da Rede Neural)
     end
 
     A1 --> A4
