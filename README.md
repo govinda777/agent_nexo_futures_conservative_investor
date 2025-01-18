@@ -553,7 +553,141 @@ Quando tentamos prever os preços de um ativo, precisamos entender como os valor
 ### **8.3. Comunidade e Fóruns para Networking**
 - Como aprender e trocar conhecimento com especialistas.
 
+---
 
+```bash
+# =======================================================================
+# AGENTE NEXO - INVESTIMENTO CONSERVADOR
+# =======================================================================
+# Modo CLI Ativado: Apresentando Resposta em Markdown + Estilo de Linha de Comando
+# =======================================================================
+
+Bem-vindo! A seguir, apresento um resumo rápido (macro) e depois um detalhamento interno (micro) do projeto **Agente Nexo - Investimento Conservador**, conforme solicitado.
+
+[Digite "enter" para continuar...]
+```
+
+## :telescope: **Visão Macro do Projeto**
+
+O diagrama macro exibe **todo o fluxo**: desde a coleta e pré-processamento dos dados, passando pelo treinamento de modelos, até a execução das operações na Nexo e notificação via Telegram.
+
+```mermaid
+flowchart LR
+    subgraph Coleta e Pré-Processamento
+        A1((Dados de Mercado))
+        A2((Notícias e Sentimento))
+        A3((Indicadores Técnicos))
+        A4(Pré-processamento / Limpeza)
+        A1 --> A4
+        A2 --> A4
+        A3 --> A4
+    end
+
+    subgraph Modelagem e Treinamento
+        B1(Arquitetura NN - LSTM / Transformers)
+        B2(Treinamento Supervisionado)
+        B3(Aprendizado por Reforço - PPO)
+    end
+    
+    subgraph Execução e Monitoramento
+        C1(Decisão de Compra/Venda)
+        C2(Ajuste de Stop Loss e Take Profit)
+        C3(API Nexo)
+        C4(Notificações Telegram)
+    end
+
+    subgraph Banco de Dados
+        D1(Históricos de Preços)
+        D2(Modelos Treinados)
+        D3(Logs e Métricas)
+    end
+
+    A4 --> B1
+    B1 --> B2
+    B2 --> B3
+    B3 -->|Modelo Treinado| C1
+    
+    C1 -->|Decisão: Compra/Venda| C3
+    C1 -->|Define SL/TP| C2
+    C2 -->|Ajusta Posições| C3
+    C3 --> C4
+    C3 -->|Executa Ordens| D1
+
+    B3 -->|Checkpoints| D2
+    C1 -->|Operações| D3
+    B2 -->|Logs Treinamento| D3
+```
+
+### **Explicação Rápida (Macro)**
+
+1. **Coleta de Dados**: O sistema busca preços, volumes, indicadores e notícias do mercado.  
+2. **Pré-processamento**: Os dados são limpos, normalizados e transformados.  
+3. **Modelagem / Treinamento**:  
+   - **Rede Neural (LSTM/Transformers)** aprende padrões.  
+   - **Aprendizado por Reforço (PPO)** refina a estratégia de trading.  
+4. **Execução**: O modelo envia **ordens de compra/venda** para a plataforma Nexo, com ajuste automático de **Stop Loss** e **Take Profit**.  
+5. **Notificação**: Todas as ações são enviadas por Telegram para manter o investidor informado.  
+6. **Banco de Dados**: Todos os históricos, logs de treinamento e modelos treinados são armazenados para consultas futuras.
+
+```bash
+# Pressione ENTER para ver o Desenho Micro
+```
+
+## :microscope: **Visão Micro do Projeto**
+
+Agora, observamos um **detalhamento interno** de como o **Agente** toma suas decisões minuto a minuto, usando módulos de rede neural, aprendizado por reforço e gerenciamento de risco.
+
+```mermaid
+flowchart TD
+    subgraph Input de Mercado
+        M1(Preços & Volume)
+        M2(Volatilidade & Indicadores)
+        M3(Sentimento / Notícias)
+    end
+    
+    subgraph Rede Neural
+        R1[Transformers / LSTM]
+        R2[DNN Hidden Layers]
+        R3[PPO Policy]
+    end
+
+    subgraph Decisão Final
+        D1(Ação: Comprar, Vender, Manter)
+        D2(Ajuste Dinâmico de SL/TP)
+    end
+
+    subgraph Execução e Feedback
+        E1(Envio de Ordem - API Nexo)
+        E2(Monitoramento da Posição)
+        E3(Feedback: Recompensa/Penalização)
+    end
+
+    M1 --> R1
+    M2 --> R1
+    M3 --> R1
+    R1 --> R2
+    R2 --> R3
+    R3 --> D1
+    R3 --> D2
+    D1 --> E1
+    D2 --> E1
+    E1 --> E2
+    E2 --> E3
+    E3 --> R3
+```
+
+### **Explicação Rápida (Micro)**
+
+1. **Input de Mercado**: Preços, volume, volatilidade e dados de sentimento são capturados continuamente.  
+2. **Rede Neural**:  
+   - Módulo **Transformers ou LSTM** detecta padrões temporais complexos.  
+   - Camadas densas (**DNN**) refinam a análise, combinando múltiplas variáveis.  
+   - **PPO (Aprendizado por Reforço)** recebe feedback (recompensa/penalização) e ajusta a política de ação.  
+3. **Decisão Final**:  
+   - **Comprar, Vender ou Manter** a posição.  
+   - **Ajustar Stop Loss e Take Profit** dinamicamente, conforme risco e volatilidade.  
+4. **Execução**: As ordens são enviadas para a Nexo, e o agente **monitora** em tempo real.  
+5. **Feedback**: O resultado (lucro, prejuízo ou neutralidade) retorna para o PPO, melhorando as futuras decisões.
 
 ---
 
