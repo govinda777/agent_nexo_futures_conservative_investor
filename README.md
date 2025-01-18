@@ -691,6 +691,106 @@ flowchart TD
 
 ---
 
+## Treinamento
+
+```bash
+┌─────────────────────────────────────────────────────────────────────────┐
+│              AGENTE NEXO - SESSÃO DE TREINAMENTO DA REDE NEURAL        │
+└─────────────────────────────────────────────────────────────────────────┘
+
+Bem-vindo à sessão focada no **treinamento da rede neural** do Agente Nexo e na definição dos “jogos” (cenários) para aprimorar nosso modelo de investimento conservador.
+
+Por favor, selecione uma das opções abaixo para navegar no sistema:
+
+1. [Definição dos Cenários de Treinamento ("Jogos")]
+2. [Método de Seleção dos Melhores Indivíduos (Modelos)]
+3. [Retornar ao Menu Principal]
+
+Digite o número desejado e pressione ENTER:
+```
+
+### **1) Definição dos Cenários de Treinamento ("Jogos")  
+
+```bash
+$ opçao_selecionada = 1
+> Carregando cenários de treinamento ...
+```
+A ideia é submeter o Agente Nexo a diferentes **jogos** ou **cenários de mercado**, permitindo que ele aprenda a tomar decisões assertivas em condições variadas. Cada jogo gera recompensas (positivas) e penalizações (negativas), ajustando o comportamento do agente via **Aprendizado por Reforço**.
+
+**Jogos Principais:**
+
+1. **Mercado de Baixa Extrema (Bear Market)**
+   - **Cenário:** O mercado cai ~10% em curto período.  
+   - **Objetivo:** Ensinar o agente a **evitar perdas** excessivas e encontrar um ponto de entrada seguro.  
+   - **Recompensa:** Protege o capital e identifica recuperação.  
+
+2. **Mercado Lateral (Consolidação)**
+   - **Cenário:** Preço oscila em uma faixa estreita, sem tendência definida.  
+   - **Objetivo:** Explorar **comprar no fundo e vender no topo** dentro da faixa, evitando overtrading.  
+   - **Recompensa:** Precisão nas entradas e saídas dentro do canal.  
+
+3. **Pump & Dump (Volatilidade Extrema)**
+   - **Cenário:** O preço do BTC/USDT dispara rapidamente (+15%), mas despenca em seguida (-20%).  
+   - **Objetivo:** Ensinar o agente a **entrar no momento certo** ou **evitar o topo** para não ser pego na queda.  
+   - **Recompensa:** Capturar parte do pump e sair antes do dump.  
+
+4. **Notícias Impactantes**
+   - **Cenário:** Surge uma notícia que afeta o sentimento do mercado (positivo ou negativo).  
+   - **Objetivo:** Reagir de forma rápida ao novo fluxo de informação, evitando **armadilhas** quando o movimento for apenas “ruído” ou aproveitando uma **mudança real de tendência**.  
+   - **Recompensa:** Ajustar posições conforme a notícia; se a ação for coerente, o agente recebe alta pontuação.  
+
+5. **Flash Crash (Queda Rápida e Recuperação)**
+   - **Cenário:** O BTC cai muito rápido (10%) e retoma a maior parte da queda (8%) em seguida.  
+   - **Objetivo:** Não “despejar tudo” no pânico e aproveitar preços descontados.  
+   - **Recompensa:** Se o agente conseguir **comprar no fundo** e lucrar com a recuperação, ganha pontuação elevada.  
+
+Esses cenários simulam situações críticas e testam a **robustez da rede neural**. É por meio desses “jogos” que o Agente Nexo aprende **estratégias vencedoras** e aptas a se adaptar ao mundo real.
+
+---
+
+### **2) Método de Seleção dos Melhores Indivíduos (Modelos)**  
+
+```bash
+$ opçao_selecionada = 2
+> Carregando critérios de seleção ...
+```
+Após rodar as simulações nos diversos jogos, teremos **vários agentes/indivíduos** treinados, cada qual com parâmetros e políticas de ação distintas. Para escolher o(s) melhor(es) modelo(s), adotamos métricas de performance e estabilidade:
+
+1. **Métrica de Retorno vs. Risco**  
+   - **Sharpe Ratio**: Mede a relação entre retorno e volatilidade das operações.  
+   - **Sortino Ratio**: Foca no risco de queda (drawdown), punindo operações muito arriscadas.
+
+2. **Drawdown Máximo (Max Drawdown)**  
+   - Verifica a maior perda durante o período de simulação.  
+   - Modelos com drawdown muito alto podem ser excluídos, pois **não são conservadores**.  
+
+3. **Estabilidade de Lucro ao Longo do Tempo**  
+   - Avalia se o agente mantém desempenho consistente em diversos cenários ou se só foi bem em um cenário específico.
+
+4. **Precisão e Taxa de Acerto**  
+   - Verifica a quantidade de operações bem-sucedidas vs. total de trades.  
+   - **Importante**: Uma alta taxa de acerto sozinha não basta; é necessário equilibrar **risco x retorno**.  
+
+5. **Critério de Consistência em Múltiplos Jogos**  
+   - O agente é posto à prova nos 5 cenários acima.  
+   - **Pontos Extras** para quem mantiver bom desempenho em todos os cenários, evitando ser muito “especialista” em apenas um tipo de mercado.  
+
+> **Observação**: Ao final de cada fase de treinamento, apenas os indivíduos/melhores checkpoints que **atendem aos critérios de risco e retorno** são preservados no repositório. Isso garante a evolução contínua do Agente Nexo rumo a estratégias cada vez mais **estáveis e conservadoras**.
+
+---
+
+### **3) Retornar ao Menu Principal**  
+
+```bash
+$ opçao_selecionada = 3
+> Encerrando a sessão de treinamento da rede neural. Retornando ao menu...
+```
+
+**Sessão Finalizada.**  
+Use este guia para conduzir seus experimentos de treinamento, definir cenários de teste (“jogos”) e selecionar os melhores indivíduos (modelos) com base em métricas de **risco** e **retorno**. Assim, garantimos uma estratégia conservadora e robusta para o Agente Nexo.
+
+---
+
 ## 📌 Sumário
 - [Introdução](#introdução)
 - [Objetivos](#objetivos)
